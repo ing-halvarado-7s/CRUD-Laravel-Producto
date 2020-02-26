@@ -95,7 +95,7 @@ class ProductController extends Controller
         Product::where('id',$id)->update($update);
    
         return Redirect::to('producto')
-       ->with('success','Produto actualizado satisfactoriamente');
+       ->with('success','Producto actualizado satisfactoriamente');
     }
 
     /**
@@ -106,6 +106,8 @@ class ProductController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Product::where('id',$id)->delete();
+        return Redirect::to('producto')->with('success','Producto eliminado satisfactoriamente');
+    
     }
 }

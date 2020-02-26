@@ -29,11 +29,12 @@
                  <td>{{ $producto->codigoProducto }}</td>
                  <td>{{ $producto->descripcionProducto }}</td>
                  <td>{{ date('Y-m-d', strtotime($producto->created_at)) }}</td>
-                 <td><a href="{{ route('producto.edit',$producto->id)}}" class="btn btn-primary">Edit</a></td>
+                 <td><a href="{{ route('producto.edit',$producto->id)}}" class="btn btn-primary">Editar</a></td>
                  
                  <td>
-                 <form action="#" method="post">
-                  
+                 <form action="{{ route('producto.destroy', $producto->id)}}" method="post">
+                  {{ csrf_field() }}
+                  @method('DELETE')
                   <button class="btn btn-danger" type="submit">Eliminar</button>
                 </form>
                 </td>
