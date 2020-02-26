@@ -12,16 +12,25 @@
     background-color: #25274d;
     }
     .container{
-    background: #ff9b00;
-    padding: 4%;
-    border-top-left-radius: 0.5rem;
-    border-bottom-left-radius: 0.5rem;
+    margin-top: 4%;
+    background: rgb(250, 163, 27);
+    padding: 1%;
+    border-radius: 0.5rem;
     }
+    .headerP{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+    
     </style>
   </head>
   <body>
     <div class="container">
       <br><br><br>
+      <header class="headerP">
+        <h1 >Gestión de Productos</h1>
+      </header>
       @yield('contenido')
     </div>
   </body>

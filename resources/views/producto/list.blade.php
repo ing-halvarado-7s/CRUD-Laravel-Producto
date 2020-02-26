@@ -10,20 +10,20 @@
            <thead>
               <tr>
                  <th>Id</th>
-                 <th>Title</th>
-                 <th>Product Code</th>
-                 <th>Description</th>
-                 <th>Created at</th>
-                 <td colspan="2">Action</td>
+                 <th>Nombre</th>
+                 <th>Código</th>
+                 <th>Descripción</th>
+                 <th>Fecha de Creación</th>
+                 <th colspan="2">Acción</th>
               </tr>
            </thead>
            <tbody>
               @foreach($productos as $producto)
               <tr>
                  <td>{{ $producto->id }}</td>
-                 <td>{{ $producto->title }}</td>
-                 <td>{{ $producto->product_code }}</td>
-                 <td>{{ $producto->description }}</td>
+                 <td>{{ $producto->nombreProducto }}</td>
+                 <td>{{ $producto->codigoProducto }}</td>
+                 <td>{{ $producto->descripcionProducto }}</td>
                  <td>{{ date('Y-m-d', strtotime($producto->created_at)) }}</td>
                  <td><a href="#" class="btn btn-primary">Editar</a></td>
                  <td>
