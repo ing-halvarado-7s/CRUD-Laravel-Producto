@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Product;
 use Illuminate\Http\Request;
 
 
@@ -14,7 +15,8 @@ class ProductController extends Controller
      */
     public function index()
     {
-        
+        $data['productos'] = Product::orderBy('id','desc')->paginate(2);
+        return view('producto.list',$data); 
     }
 
     /**
