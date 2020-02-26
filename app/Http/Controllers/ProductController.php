@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Product;
 use Illuminate\Http\Request;
+use Redirect;
 
 
 class ProductController extends Controller
@@ -26,7 +27,7 @@ class ProductController extends Controller
      */
     public function create()
     {
-        //
+        return view('producto.create');
     }
 
     /**
@@ -37,7 +38,17 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // return $request;
+        $request->validate([
+            'nombreProducto' => 'required',
+            'codigoProducto' => 'required',
+            'descripcionProducto' => 'required',
+        ]);
+   
+        Product::create($request->all());
+    
+        return Redirect::to('producto')
+       ->with('success','Producto creado satisfactoriamente.');
     }
 
     /**
@@ -59,7 +70,10 @@ class ProductController extends Controller
      */
     public function edit($id)
     {
-        //
+        $where = array('id' => $id);
+        $data['product_info'] = Product::where($where)->first();
+ 
+        return view('product.edit', $data);
     }
 
     /**
@@ -71,7 +85,17 @@ class ProductController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'title' => 'required',
+            'product_code' => 'required',
+            'description' => 'required',
+        ]);
+         
+        $update = ['title' => $request->title, 'description' => $request->description];
+        Product::where('id',$id)->update($update);
+   
+        return Redirect::to('products')
+       ->with('success','Great! Product updated successfully');
     }
 
     /**

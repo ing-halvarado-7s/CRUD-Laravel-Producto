@@ -1,7 +1,11 @@
 @extends('producto.layout')
+
+@section('encabezado')
+   <h2>Listado de produtos</h2>
+@endsection
    
 @section('contenido')
-  <a href="#" class="btn btn-success mb-2">Agregar</a> 
+  <a href="{{ route('producto.create') }}" class="btn btn-success mb-2">Agregar</a> 
   <br>
    <div class="row">
         <div class="col-12">

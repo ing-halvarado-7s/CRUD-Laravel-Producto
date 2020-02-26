@@ -29,7 +29,7 @@
     <div class="container">
       <br><br><br>
       <header class="headerP">
-        <h1 >Gestión de Productos</h1>
+        @yield('encabezado')
       </header>
       @yield('contenido')
     </div>
