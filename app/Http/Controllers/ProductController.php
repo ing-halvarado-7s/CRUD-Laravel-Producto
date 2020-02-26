@@ -73,7 +73,7 @@ class ProductController extends Controller
         $where = array('id' => $id);
         $data['product_info'] = Product::where($where)->first();
  
-        return view('product.edit', $data);
+        return view('producto.edit', $data);
     }
 
     /**
@@ -86,16 +86,16 @@ class ProductController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'title' => 'required',
-            'product_code' => 'required',
-            'description' => 'required',
+            'nombreProducto' => 'required',
+            'codigoProducto' => 'required',
+            'descripcionProducto' => 'required',
         ]);
          
-        $update = ['title' => $request->title, 'description' => $request->description];
+        $update = ['nombreProducto' => $request->nombreProducto, 'descripcionProducto' => $request->descripcionProducto];
         Product::where('id',$id)->update($update);
    
-        return Redirect::to('products')
-       ->with('success','Great! Product updated successfully');
+        return Redirect::to('producto')
+       ->with('success','Produto actualizado satisfactoriamente');
     }
 
     /**

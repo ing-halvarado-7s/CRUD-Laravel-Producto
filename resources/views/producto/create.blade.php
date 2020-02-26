@@ -1,12 +1,10 @@
 @extends('producto.layout')
 
 @section('encabezado')
-   <h2>Agregar Produtos</h2>
+   <h2>Agregar Productos</h2>
 @endsection
  
 @section('contenido')
-
-<br>
  
 <form action="{{ route('producto.store') }}" method="POST" name="add_product">
 {{ csrf_field() }}
